@@ -14,6 +14,8 @@
 		408522CC246AF21700E65108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408522CA246AF21700E65108 /* Main.storyboard */; };
 		408522D8246AF21700E65108 /* DrinkAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408522D7246AF21700E65108 /* DrinkAssistantTests.swift */; };
 		408522E3246AF21700E65108 /* DrinkAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408522E2246AF21700E65108 /* DrinkAssistantUITests.swift */; };
+		408522F2246AF27100E65108 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408522F0246AF27100E65108 /* PopoverViewController.swift */; };
+		408522F3246AF27100E65108 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408522F1246AF27100E65108 /* PopoverViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		408522DE246AF21700E65108 /* DrinkAssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkAssistantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		408522E2246AF21700E65108 /* DrinkAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAssistantUITests.swift; sourceTree = "<group>"; };
 		408522E4246AF21700E65108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		408522F0246AF27100E65108 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		408522F1246AF27100E65108 /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				408522CD246AF21700E65108 /* Info.plist */,
 				408522CE246AF21700E65108 /* DrinkAssistant.entitlements */,
 				408522C7246AF21700E65108 /* Preview Content */,
+				408522F0246AF27100E65108 /* PopoverViewController.swift */,
+				408522F1246AF27100E65108 /* PopoverViewController.xib */,
 			);
 			path = DrinkAssistant;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408522F3246AF27100E65108 /* PopoverViewController.xib in Resources */,
 				408522CC246AF21700E65108 /* Main.storyboard in Resources */,
 				408522C9246AF21700E65108 /* Preview Assets.xcassets in Resources */,
 				408522C6246AF21700E65108 /* Assets.xcassets in Resources */,
@@ -267,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				408522C4246AF21600E65108 /* ContentView.swift in Sources */,
+				408522F2246AF27100E65108 /* PopoverViewController.swift in Sources */,
 				408522C2246AF21600E65108 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
