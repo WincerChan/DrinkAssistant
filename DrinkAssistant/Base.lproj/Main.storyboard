@@ -674,9 +674,26 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DrinkAssistant" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DrinkAssistant" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menu" destination="ISq-8n-mvq" id="VJQ-xE-yVj"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="ISq-8n-mvq">
+                    <items>
+                        <menuItem title="启动" keyEquivalent="r" id="ChO-Vg-gJI">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="暂停" keyEquivalent="p" id="fdW-WY-fvn">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="退出" keyEquivalent="q" id="mO1-83-Qji">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
