@@ -13,6 +13,11 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var menu: NSMenu!
+    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    let popover = NSPopover()
+    var eventMonitor: EventMonitor?
+    var running = true
+    let control = PopoverViewController()
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
