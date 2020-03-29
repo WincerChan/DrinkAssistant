@@ -43,4 +43,76 @@ class PopoverViewController: NSViewController, NSUserNotificationCenterDelegate 
     @IBOutlet weak var notify: NSComboBox!
     
     @IBOutlet weak var submit: NSButton!
+    
+    let q = DispatchQueue.background()
+    
+    override func viewDidLoad() {
+            // Do view setup here.
+            super.viewDidLoad()
+            submit.action = #selector(buttonPress(_:))
+            maintitle.stringValue = Config.titleString
+            notify.stringValue = String(Config.interval / 60) + " min"
+            subtitle.documentView!.insertText(Config.subtitleString)
+        }
+    
+    func asyncShow() -> Void {
+        q.async {
+            while Config.running {
+                Config.insideloop = true
+                self.showNotification()
+                sleep(Config.interval)
+            }
+            Config.insideloop = false
+        }
+    }
+    
+    func showNotification() -> Void {
+        let notification = NSUserNotification()
+        notification.title = Config.titleString
+        notification.subtitle = Config.subtitleString
+        notification.soundName = NSUserNotificationDefaultSoundName
+        NSUserNotificationCenter.default.delegate = self
+        NSUserNotificationCenter.default.deliver(notification)
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+    
+    @objc func buttonPress(_ sender: Any) {
+        let minutes = notify.stringValue
+        let subtitleView = subtitle.documentView! as! NSTextView
+        Config.interval = (UInt32(minutes.components(separatedBy: " ")[0]) ?? 10 ) * 60
+        popover.window?.close()
+        Config.titleString = maintitle.stringValue
+        Config.subtitleString = subtitleView.string
+        Config.saveConfig()
+    }
+    
+    public func doPause() {
+        Config.running = false
+    }
+    public func doResume() {
+        Config.running = true
+        if !Config.insideloop {
+            asyncShow()
+        }
+    }
+}
+
+extension PopoverViewController {
+    static func freshController() -> PopoverViewController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier("PopoverViewController")
+        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? PopoverViewController else {
+            fatalError("Something Wrong with Main.storyboard")
+        }
+        return viewcontroller
+    }
+}
+
+extension DispatchQueue {
+    static func background(delay: Double=0.0, background:(() -> Void)? = nil) -> DispatchQueue {
+        return DispatchQueue.global(qos: .background)
+    }
 }

@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-          button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
+          button.image = NSImage(named:NSImage.Name("StatusBar"))
             button.action = #selector(mouseClickHandler)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
