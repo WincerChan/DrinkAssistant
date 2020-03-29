@@ -11,9 +11,8 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
-
     @IBOutlet weak var menu: NSMenu!
-    //    var window: NSWindow!
+    
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
@@ -81,12 +80,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBAction func quit(_ sender: Any) {
         NSApplication.shared.terminate(self)
     }
-    @IBAction func pause(_ sender: Any) {
-        control.doPause()
-    }
-    
     @IBAction func resume(_ sender: Any) {
         control.doResume()
+    }
+    @IBAction func pause(_ sender: Any) {
+        control.doPause()
     }
 }
 
